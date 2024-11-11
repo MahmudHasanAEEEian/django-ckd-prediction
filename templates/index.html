@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-semibold mb-6 text-center text-gray-800">Enter Patient Data</h1>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <label for="bgr" class="block text-sm font-medium text-gray-700">Blood Glucose Random</label>
+                    <input type="number" step="any" id="bgr" name="bgr" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="bu" class="block text-sm font-medium text-gray-700">Blood Urea</label>
+                    <input type="number" step="any" id="bu" name="bu" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="sc" class="block text-sm font-medium text-gray-700">Serum Creatinine</label>
+                    <input type="number" step="any" id="sc" name="sc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="sod" class="block text-sm font-medium text-gray-700">Sodium</label>
+                    <input type="number" step="any" id="sod" name="sod" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="hemo" class="block text-sm font-medium text-gray-700">Hemoglobin</label>
+                    <input type="number" step="any" id="hemo" name="hemo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="pcv" class="block text-sm font-medium text-gray-700">Packed Cell Volume</label>
+                    <input type="number" step="any" id="pcv" name="pcv" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="rc" class="block text-sm font-medium text-gray-700">Red Blood Cell Count</label>
+                    <input type="number" step="any" id="rc" name="rc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="sg" class="block text-sm font-medium text-gray-700">Specific Gravity</label>
+                    <input type="number" step="any" id="sg" name="sg" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="al" class="block text-sm font-medium text-gray-700">Albumin</label>
+                    <input type="number" step="any" id="al" name="al" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="su" class="block text-sm font-medium text-gray-700">Sugar</label>
+                    <input type="number" step="any" id="su" name="su" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                </div>
+                <div>
+                    <label for="rbc" class="block text-sm font-medium text-gray-700">Red Blood Cells</label>
+                    <select id="rbc" name="rbc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="normal">Normal</option>
+                        <option value="abnormal">Abnormal</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="pc" class="block text-sm font-medium text-gray-700">Pus Cells</label>
+                    <select id="pc" name="pc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="normal">Normal</option>
+                        <option value="abnormal">Abnormal</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="pcc" class="block text-sm font-medium text-gray-700">Pus Cell Clumps</label>
+                    <select id="pcc" name="pcc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="present">Present</option>
+                        <option value="notpresent">Not Present</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ba" class="block text-sm font-medium text-gray-700">Bacteria</label>
+                    <select id="ba" name="ba" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="present">Present</option>
+                        <option value="notpresent">Not Present</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="htn" class="block text-sm font-medium text-gray-700">Hypertension</label>
+                    <select id="htn" name="htn" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="dm" class="block text-sm font-medium text-gray-700">Diabetes Mellitus</label>
+                    <select id="dm" name="dm" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="cad" class="block text-sm font-medium text-gray-700">Coronary Artery Disease</label>
+                    <select id="cad" name="cad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="appet" class="block text-sm font-medium text-gray-700">Appetite</label>
+                    <select id="appet" name="appet" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="good">Good</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="pe" class="block text-sm font-medium text-gray-700">Pedal Edema</label>
+                    <select id="pe" name="pe" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ane" class="block text-sm font-medium text-gray-700">Anemia</label>
+                    <select id="ane" name="ane" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Predict</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+/* tailwind-built.css */
+
+/* Import Tailwind base styles */
+@tailwind base;
+
+/* Import Tailwind component styles */
+@tailwind components;
+
+/* Import Tailwind utility styles */
+@tailwind utilities;
+
+/* Custom styling can be added here if required */
+
+/* Custom button styles for hover effects, etc. */
+.bg-blue-500:hover {
+    background-color: #2563EB; /* Custom hover color */
+}

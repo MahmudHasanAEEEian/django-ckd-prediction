@@ -52,7 +52,7 @@ def predict_view(request):
             results = {}
             for model_name, model in loaded_models.items():
                 prediction = model.predict(sample_df)
-                results[model_name] = 'Diabetic' if prediction[0] == 1 else 'Non-Diabetic'
+                results[model_name] = 'CKD' if prediction[0] == 1 else 'Not-CKD'
 
             return render(request, 'result.html', {'results': results})
     else:
